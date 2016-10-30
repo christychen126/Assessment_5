@@ -89,9 +89,11 @@ tables it connects.
 # Part 3
 
 def search_brands_by_name(mystr):
+    """returns objects that are brands whose name contains or is equal to the input string"""
     return db.session.query(Brand).filter.like(Brand.name.like('% {} %').format(mystr)).all()
 
 
 def get_models_between(start_year, end_year):
+    """returns objects that are models with years that fall between the start year and end year"""
 
     return Model.query.filter(Model.year >= start_year, Model.year < end_year).all()
